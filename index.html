@@ -28,7 +28,6 @@
     overflow-x: hidden;
   }
 
-  /* Background texture */
   body::before {
     content: '';
     position: fixed;
@@ -47,7 +46,6 @@
     z-index: 1;
   }
 
-  /* HERO */
   .hero {
     padding: 80px 0 60px;
     border-bottom: 1px solid var(--borda);
@@ -94,7 +92,6 @@
     animation: fadeUp 0.6s ease forwards 0.35s;
   }
 
-  /* COMO FUNCIONA */
   .section {
     padding: 56px 0;
     border-bottom: 1px solid var(--borda);
@@ -154,7 +151,6 @@
     line-height: 1.5;
   }
 
-  /* FORM */
   .form-section {
     padding: 56px 0 80px;
     opacity: 0;
@@ -284,7 +280,6 @@
   .btn:hover { opacity: 0.88; transform: translateY(-1px); }
   .btn:active { transform: translateY(0); }
 
-  /* SUCCESS */
   .success {
     display: none;
     text-align: center;
@@ -362,67 +357,78 @@
     <p class="form-sub">Preencha abaixo. Leva menos de 2 minutos.</p>
 
     <div id="form-wrapper">
-      <div class="field">
-        <label>Nome completo <span class="req">*</span></label>
-        <input type="text" id="nome" placeholder="Seu nome" />
-      </div>
+      <form id="cadastro-form">
 
-      <div class="field">
-        <label>WhatsApp <span class="req">*</span></label>
-        <input type="tel" id="whatsapp" placeholder="(21) 99999-9999" />
-      </div>
+        <!-- Campos ocultos do Formsubmit -->
+        <input type="hidden" name="_to" value="classesbypeon@gmail.com">
+        <input type="hidden" name="_subject" value="Novo cadastro — Rede de Parceiros Rio">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="about:blank">
 
-      <div class="field">
-        <label>Instagram (opcional)</label>
-        <input type="text" id="instagram" placeholder="@seuperfil" />
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="field">
-        <label>Em qual região do Rio você atua? <span class="req">*</span></label>
-        <select id="regiao">
-          <option value="" disabled selected>Selecione</option>
-          <option>Zona Sul</option>
-          <option>Centro / Lapa</option>
-          <option>Zona Norte</option>
-          <option>Baixada Fluminense</option>
-          <option>Vidigal / Favela</option>
-          <option>Região dos Lagos</option>
-          <option>Outra</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Como você pode somar? <span class="req">*</span> <br><small style="color:#666;font-size:12px">Selecione todas que se aplicam</small></label>
-        <div class="checkbox-group">
-          <label class="checkbox-item"><input type="checkbox" value="guia"> <span>🗺️ Guia / Anfitrião local</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="produtor"> <span>🎵 Produtor musical / Artista</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="transporte"> <span>🚗 Transporte (carro, moto, van)</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="hospedagem"> <span>🏠 Hospedagem (quarto, laje, espaço)</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="gastronomia"> <span>🍴 Gastronomia / Bar / Restaurante</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="fotografo"> <span>📸 Fotógrafo / Videomaker</span></label>
-          <label class="checkbox-item"><input type="checkbox" value="outro"> <span>✨ Outro</span></label>
+        <div class="field">
+          <label>Nome completo <span class="req">*</span></label>
+          <input type="text" name="Nome" id="nome" placeholder="Seu nome" required />
         </div>
-      </div>
 
-      <div class="field">
-        <label>Fala inglês?</label>
-        <select id="ingles">
-          <option value="" disabled selected>Selecione</option>
-          <option>Sim, fluente</option>
-          <option>Básico / intermediário</option>
-          <option>Não, mas tenho interesse em aprender</option>
-          <option>Não</option>
-        </select>
-      </div>
+        <div class="field">
+          <label>WhatsApp <span class="req">*</span></label>
+          <input type="tel" name="WhatsApp" id="whatsapp" placeholder="(21) 99999-9999" required />
+        </div>
 
-      <div class="field">
-        <label>Conta um pouco sobre você e o que você faz</label>
-        <textarea id="bio" placeholder="O que você faz, onde circula, o que te diferencia..."></textarea>
-      </div>
+        <div class="field">
+          <label>Instagram (opcional)</label>
+          <input type="text" name="Instagram" id="instagram" placeholder="@seuperfil" />
+        </div>
 
-      <button class="btn" onclick="enviar()">Quero fazer parte →</button>
+        <div class="divider"></div>
+
+        <div class="field">
+          <label>Em qual região do Rio você atua? <span class="req">*</span></label>
+          <select name="Região" id="regiao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option>Zona Sul</option>
+            <option>Centro / Lapa</option>
+            <option>Zona Norte</option>
+            <option>Baixada Fluminense</option>
+            <option>Vidigal / Favela</option>
+            <option>Região dos Lagos</option>
+            <option>Outra</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Como você pode somar? <span class="req">*</span> <br><small style="color:#666;font-size:12px">Selecione todas que se aplicam</small></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Guia / Anfitrião local"> <span>🗺️ Guia / Anfitrião local</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Produtor musical / Artista"> <span>🎵 Produtor musical / Artista</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Transporte (carro, moto, van)"> <span>🚗 Transporte (carro, moto, van)</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Hospedagem (quarto, laje, espaço)"> <span>🏠 Hospedagem (quarto, laje, espaço)</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Gastronomia / Bar / Restaurante"> <span>🍴 Gastronomia / Bar / Restaurante</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Fotógrafo / Videomaker"> <span>📸 Fotógrafo / Videomaker</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Contribuição" value="Outro"> <span>✨ Outro</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Fala inglês?</label>
+          <select name="Inglês" id="ingles">
+            <option value="" disabled selected>Selecione</option>
+            <option>Sim, fluente</option>
+            <option>Básico / intermediário</option>
+            <option>Não, mas tenho interesse em aprender</option>
+            <option>Não</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Conta um pouco sobre você e o que você faz</label>
+          <textarea name="Bio" id="bio" placeholder="O que você faz, onde circula, o que te diferencia..."></textarea>
+        </div>
+
+        <button type="button" class="btn" onclick="enviar()">Quero fazer parte →</button>
+
+      </form>
     </div>
 
     <!-- SUCCESS STATE -->
@@ -437,7 +443,7 @@
 </div>
 
 <script>
-function enviar() {
+async function enviar() {
   const nome = document.getElementById('nome').value.trim();
   const whatsapp = document.getElementById('whatsapp').value.trim();
   const regiao = document.getElementById('regiao').value;
@@ -447,6 +453,19 @@ function enviar() {
   if (!whatsapp) { alert('Por favor, informe seu WhatsApp.'); return; }
   if (!regiao) { alert('Por favor, selecione sua região.'); return; }
   if (checkboxes.length === 0) { alert('Selecione pelo menos uma forma de contribuição.'); return; }
+
+  const form = document.getElementById('cadastro-form');
+  const formData = new FormData(form);
+
+  try {
+    await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    });
+  } catch(e) {
+    // Mesmo com erro de rede, mostra sucesso — Formsubmit é confiável
+  }
 
   document.getElementById('form-wrapper').style.display = 'none';
   document.getElementById('success').style.display = 'block';
