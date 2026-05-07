@@ -26,37 +26,27 @@
   h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; }
   em { font-style: normal; color: var(--verde); }
 
+  /* PORTFÓLIO - CORES NATURAIS */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+  .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; transition: 0.4s; background: #222; }
+  .portfolio-grid img:hover { transform: scale(1.02); }
+
   /* CARROSSEL */
   .carousel { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scrollbar-width: none; }
   .carousel::-webkit-scrollbar { display: none; }
-  .experience-card { min-width: 280px; background: var(--cinza); border: 1px solid var(--borda); border-radius: 12px; overflow: hidden; transition: 0.3s; }
-  .exp-img { width: 100%; height: 220px; object-fit: cover; background: #222; display: block; }
+  .experience-card { min-width: 280px; background: var(--cinza); border: 1px solid var(--borda); border-radius: 12px; overflow: hidden; }
+  .exp-img { width: 100%; height: 220px; object-fit: cover; display: block; }
   .exp-content { padding: 20px; }
-  .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 8px; display: block; }
+  .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; display: block; margin-bottom: 5px; }
 
-  /* PORTFÓLIO - CORES REAIS ATIVADAS */
-  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-  .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; transition: 0.4s; background: #222; }
-  .portfolio-grid img:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-
-  /* CHECKBOX COM BRILHO */
+  /* FORMULÁRIO E CHECKBOX */
   .checkbox-group { display: grid; gap: 10px; margin-top: 15px; }
-  .checkbox-item {
-    display: flex; align-items: center; gap: 12px;
-    background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 8px; padding: 18px; cursor: pointer;
-    transition: all 0.3s ease; position: relative;
-  }
-  .checkbox-item.selected {
-    border-color: var(--verde);
-    background: rgba(0, 232, 122, 0.1);
-    box-shadow: 0 0 20px rgba(0, 232, 122, 0.15);
-  }
+  .checkbox-item { display: flex; align-items: center; gap: 12px; background: var(--cinza); border: 1px solid var(--borda); border-radius: 8px; padding: 18px; cursor: pointer; transition: 0.3s; position: relative; }
+  .checkbox-item.selected { border-color: var(--verde); background: rgba(0, 232, 122, 0.1); box-shadow: 0 0 20px rgba(0, 232, 122, 0.15); }
   .checkbox-item input { position: absolute; opacity: 0; }
-
   .field { margin-bottom: 20px; }
   label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
-  input { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit; }
+  input { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; }
   input:focus { border-color: var(--verde); }
 
   .btn { width: 100%; background: var(--verde); color: var(--preto); font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px; border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase; transition: 0.3s; display: block; text-align: center; text-decoration: none; }
@@ -68,7 +58,6 @@
   .footer-col p, .footer-col a { color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 10px; display: block; }
 
   .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
-  .wa-float:hover { transform: scale(1.1); }
 </style>
 </head>
 <body>
@@ -89,7 +78,7 @@
   <section id="sobre" style="padding-top: 160px;">
     <span class="section-label">A iniciativa</span>
     <h1>Turismo feito por <em>quem mora aqui.</em></h1>
-    <p>O Rio Real é uma rede que valoriza a cultura local e as conexões humanas autênticas em cada território.</p>
+    <p>Conectando viajantes à essência real do Rio de Janeiro através de experiências locais autênticas.</p>
   </section>
 
   <section id="portfolio">
@@ -133,12 +122,12 @@
       <div class="field"><label>Nome Completo *</label><input type="text" name="Nome" required></div>
       <div class="field"><label>WhatsApp *</label><input type="tel" name="WhatsApp" required></div>
       <div class="field">
-        <label>Como você soma na rede? (Selecione)</label>
+        <label>Como você soma na rede?</label>
         <div class="checkbox-group">
-          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Guia"><span>🗺️ Guia / Anfitrião local</span></div>
-          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Transporte"><span>🚗 Transporte (Moto/Carro)</span></div>
-          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Gastronomia"><span>🍴 Gastronomia / Bares</span></div>
-          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Foto"><span>📸 Fotografia / Vídeo</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Guia"><span>🗺️ Guia Local</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Transporte"><span>🚗 Transporte</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Gastronomia"><span>🍴 Gastronomia</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Foto"><span>📸 Fotografia</span></div>
         </div>
       </div>
       <button type="button" class="btn" onclick="enviar()">Enviar Proposta</button>
@@ -150,8 +139,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-col"><h4 class="logo">RIO REAL.</h4><p>© 2026 Rio Real.</p></div>
-    <div class="footer-col"><h4>Links</h4><a href="#">Privacidade</a></div>
-    <div class="footer-col"><h4>Comunidade</h4><a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank">Acessar Grupo</a></div>
+    <div class="footer-col"><h4>Comunidade</h4><a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank">Entrar no Grupo</a></div>
     <div class="footer-col"><h4>Pagamento</h4><p>Pix · Dinheiro</p></div>
   </div>
 </footer>
@@ -161,7 +149,6 @@
 </a>
 
 <script>
-  // Lógica de seleção das caixas
   document.querySelectorAll('.checkbox-item').forEach(item => {
     item.addEventListener('click', () => {
       const checkbox = item.querySelector('input');
@@ -177,9 +164,10 @@
       await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', { method: 'POST', body: formData });
       form.style.display = 'none';
       document.getElementById('success').style.display = 'block';
-    } catch(e) { alert('Erro no envio. Tente novamente.'); }
+    } catch(e) { alert('Erro no envio.'); }
   }
 </script>
 
 </body>
 </html>
+
