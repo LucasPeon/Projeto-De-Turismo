@@ -34,12 +34,12 @@
   .exp-content { padding: 20px; }
   .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 8px; display: block; }
 
-  /* PORTFÓLIO */
+  /* PORTFÓLIO - REMOVIDO O FILTRO PRETO E BRANCO */
   .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-  .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; filter: grayscale(1); transition: 0.4s; background: #222; }
-  .portfolio-grid img:hover { filter: grayscale(0); transform: scale(1.02); }
+  .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; transition: 0.4s; background: #222; }
+  .portfolio-grid img:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-  /* CHECKBOX - O BRILHO QUE VOCÊ QUERIA */
+  /* CHECKBOX */
   .checkbox-group { display: grid; gap: 10px; margin-top: 15px; }
   .checkbox-item {
     display: flex; align-items: center; gap: 12px;
@@ -57,7 +57,7 @@
   .field { margin-bottom: 20px; }
   label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
   input, textarea { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit; }
-  input:focus, textarea:focus { border-color: var(--verde); }
+  input:focus { border-color: var(--verde); }
 
   .btn { width: 100%; background: var(--verde); color: var(--preto); font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px; border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase; transition: 0.3s; display: block; text-align: center; text-decoration: none; }
   .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
@@ -88,7 +88,7 @@
   <section id="sobre" style="padding-top: 160px;">
     <span class="section-label">A iniciativa</span>
     <h1>Turismo feito por <em>quem mora aqui.</em></h1>
-    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade.</p>
+    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade e valorizar o que é autêntico.</p>
   </section>
 
   <section id="portfolio">
@@ -110,16 +110,16 @@
         <img src="IMG/gastronomia.jpg" class="exp-img">
         <div class="exp-content">
           <span class="exp-price">R$ 120,00</span>
-          <strong>Circuito Gastronômico Favela</strong>
-          <a href="https://wa.me/5521999999999" class="btn" style="margin-top:15px; padding:10px;">RESERVAR</a>
+          <strong style="display:block; margin-bottom: 15px;">Circuito Gastronômico Favela</strong>
+          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR</a>
         </div>
       </div>
       <div class="experience-card">
         <img src="IMG/trilha.jpg" class="exp-img">
         <div class="exp-content">
           <span class="exp-price">R$ 80,00</span>
-          <strong>Trilha & Nascer do Sol</strong>
-          <a href="https://wa.me/5521999999999" class="btn" style="margin-top:15px; padding:10px;">RESERVAR</a>
+          <strong style="display:block; margin-bottom: 15px;">Trilha & Nascer do Sol</strong>
+          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR</a>
         </div>
       </div>
     </div>
@@ -149,18 +149,17 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-col"><h4 class="logo">RIO REAL.</h4><p>© 2026 Rio Real.</p></div>
-    <div class="footer-col"><h4>Legal</h4><a href="#">Privacidade</a><a href="#">Termos</a></div>
-    <div class="footer-col"><h4>Contato</h4><p>(21) 99999-9999</p></div>
-    <div class="footer-col"><h4>Pagamento</h4><p>Pix · Cartão · Dinheiro</p></div>
+    <div class="footer-col"><h4>Legal</h4><a href="#">Privacidade</a></div>
+    <div class="footer-col"><h4>Contato</h4><p>Comunidade Rio Real</p></div>
+    <div class="footer-col"><h4>Pagamento</h4><p>Pix · Dinheiro</p></div>
   </div>
 </footer>
 
-<a href="https://wa.me/5521999999999" class="wa-float" target="_blank">
+<a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" class="wa-float" target="_blank">
   <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.484 2.247 2.247 3.484 5.232 3.484 8.404 0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.96-.504-5.69-1.463l-6.315 1.688zm6.115-3.693c1.554.922 3.155 1.408 4.814 1.408 5.4 0 9.792-4.392 9.792-9.792s-4.392-9.792-9.792-9.792c-5.4 0-9.792 4.392-9.792 9.792 0 1.765.469 3.482 1.358 4.966l-1.017 3.712 3.829-.994zm11.235-7.556c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.151-.676.151-.2.302-.776.979-.951 1.18-.176.201-.351.226-.652.076-.301-.15-1.272-.469-2.422-1.495-.894-.798-1.497-1.783-1.672-2.084-.176-.302-.018-.465.132-.614.135-.134.301-.352.452-.529.151-.176.201-.276.301-.477.101-.201.051-.377-.025-.527-.076-.151-.676-1.631-.926-2.234-.243-.589-.491-.509-.676-.519-.174-.01-.375-.011-.575-.011-.201 0-.526.075-.801.376-.275.301-1.052 1.029-1.052 2.511 0 1.481 1.077 2.912 1.227 3.113.15.201 2.119 3.235 5.134 4.536.717.31 1.277.495 1.714.634.719.229 1.373.196 1.891.119.577-.085 1.781-.728 2.031-1.431.25-.703.25-1.306.175-1.431-.075-.124-.275-.201-.576-.351z"/></svg>
 </a>
 
 <script>
-  // Script para marcar a caixa e dar o brilho
   document.querySelectorAll('.checkbox-item').forEach(item => {
     item.addEventListener('click', () => {
       const checkbox = item.querySelector('input');
