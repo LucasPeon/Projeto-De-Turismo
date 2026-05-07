@@ -28,17 +28,7 @@
     overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(circle at 20% 20%, rgba(0,232,122,0.06) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(0,232,122,0.04) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* HEADER & NAV */
+  /* Menu Fixo */
   header {
     position: fixed;
     top: 0; width: 100%; z-index: 100;
@@ -47,95 +37,83 @@
     border-bottom: 1px solid var(--borda);
   }
   nav {
-    max-width: 1100px; margin: 0 auto; padding: 20px 24px;
+    max-width: 1100px; margin: 0 auto; padding: 15px 24px;
     display: flex; justify-content: space-between; align-items: center;
   }
   .logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--verde); text-decoration: none; font-size: 20px; }
-  nav ul { display: flex; list-style: none; gap: 24px; }
-  nav a { text-decoration: none; color: var(--texto); font-size: 12px; font-family: 'Syne', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  nav ul { display: flex; list-style: none; gap: 20px; }
+  nav a { text-decoration: none; color: var(--texto); font-size: 11px; font-family: 'Syne', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 
   .container { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-  section { padding: 100px 0; border-bottom: 1px solid var(--borda); }
-  .section-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--verde); margin-bottom: 28px; display: block; }
+  section { padding: 80px 0; border-bottom: 1px solid var(--borda); }
+  .section-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--verde); margin-bottom: 20px; display: block; }
   
-  h1, h2 { font-family: 'Syne', sans-serif; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; }
-  h1 { font-size: clamp(40px, 8vw, 64px); font-weight: 800; }
-  h2 { font-size: clamp(30px, 5vw, 42px); font-weight: 700; }
+  h1, h2 { font-family: 'Syne', sans-serif; line-height: 1.1; margin-bottom: 20px; }
+  h1 { font-size: clamp(38px, 7vw, 60px); font-weight: 800; }
+  h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; }
   em { font-style: normal; color: var(--verde); }
 
-  /* CARROSSEL DE EXPERIÊNCIAS (CLIENTES) */
+  /* CARROSSEL */
   .carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 20px;
-    scrollbar-width: none; /* Firefox */
+    display: flex; overflow-x: auto; gap: 20px; padding: 20px 0;
+    scrollbar-width: none;
   }
-  .carousel::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-
+  .carousel::-webkit-scrollbar { display: none; }
   .experience-card {
-    min-width: 280px;
-    background: var(--cinza);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s;
+    min-width: 280px; background: var(--cinza); border: 1px solid var(--borda);
+    border-radius: 12px; overflow: hidden; transition: 0.3s;
   }
-  .experience-card:hover { transform: translateY(-5px); border-color: var(--verde); }
+  .experience-card:hover { border-color: var(--verde); }
   .exp-img { width: 100%; height: 200px; object-fit: cover; }
   .exp-content { padding: 20px; }
-  .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 18px; display: block; margin-bottom: 5px; }
-  .exp-title { font-weight: 700; font-size: 16px; margin-bottom: 10px; display: block; }
+  .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; display: block; }
 
-  /* CHECKBOX ESTILIZADA (PARCEIROS) */
-  .checkbox-group { display: grid; gap: 8px; }
+  /* PORTFÓLIO GRID */
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px;
+  }
+  .portfolio-grid img { width: 100%; border-radius: 8px; filter: grayscale(1); transition: 0.4s; cursor: pointer; }
+  .portfolio-grid img:hover { filter: grayscale(0); transform: scale(1.02); }
+
+  /* CHECKBOX FEEDBACK VISUAL */
+  .checkbox-group { display: grid; gap: 10px; margin-top: 10px; }
   .checkbox-item {
     display: flex; align-items: center; gap: 12px;
     background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 6px; padding: 12px 16px; cursor: pointer;
-    transition: all 0.2s; user-select: none;
+    border-radius: 8px; padding: 15px; cursor: pointer;
+    transition: all 0.3s ease;
   }
-  .checkbox-item input { width: 18px; height: 18px; accent-color: var(--verde); }
-  .checkbox-item.selected { border-color: var(--verde); background: rgba(0,232,122,0.08); }
+  /* Estado Selecionado */
+  .checkbox-item.selected {
+    border-color: var(--verde);
+    background: rgba(0, 232, 122, 0.15);
+    box-shadow: 0 0 15px rgba(0, 232, 122, 0.1);
+  }
+  .checkbox-item input { display: none; } /* Esconde o check padrão */
 
-  /* FORM ELEMENTS */
-  .field { margin-bottom: 20px; }
-  label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
-  input, select, textarea {
-    width: 100%; background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit;
-  }
-  input:focus, select:focus { border-color: var(--verde); }
   .btn {
     width: 100%; background: var(--verde); color: var(--preto);
     font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px;
     border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase;
-    transition: 0.2s;
   }
-  .btn:hover { opacity: 0.9; transform: scale(1.01); }
 
   /* RODAPÉ */
-  footer { background: #050505; padding: 60px 24px; border-top: 1px solid var(--borda); }
+  footer { background: #050505; padding: 60px 24px; border-top: 1px solid var(--borda); margin-top: 50px; }
   .footer-grid {
     max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px;
   }
-  .footer-col h4 { font-family: 'Syne', sans-serif; font-size: 14px; margin-bottom: 20px; color: var(--verde); }
-  .footer-col a, .footer-col p { color: var(--muted); text-decoration: none; font-size: 13px; display: block; margin-bottom: 10px; }
-  .footer-col a:hover { color: #fff; }
-  .payments img { height: 25px; filter: grayscale(1) invert(1); opacity: 0.6; margin-right: 10px; }
+  .footer-col h4 { font-family: 'Syne', sans-serif; color: var(--verde); margin-bottom: 15px; font-size: 13px; }
+  .footer-col p, .footer-col a { color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 8px; display: block; }
 
   /* WHATSAPP FLOAT */
   .wa-float {
     position: fixed; bottom: 30px; right: 30px;
     background: #25D366; width: 60px; height: 60px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s;
+    z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
   }
-  .wa-float:hover { transform: scale(1.1); }
-
-  @media (max-width: 768px) { nav ul { display: none; } }
 </style>
 </head>
 <body>
@@ -145,93 +123,87 @@
     <a href="#" class="logo">RIO REAL.</a>
     <ul>
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#portfolio">Experiências</a></li>
-      <li><a href="#clientes">Contratar</a></li>
-      <li><a href="#parceiros">Seja Parceiro</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#clientes">Experiências</a></li>
+      <li><a href="#parceiros">Parceiros</a></li>
     </ul>
   </nav>
 </header>
 
 <div class="container">
-  <!-- INÍCIO -->
-  <section id="inicio" style="padding-top: 160px;">
-    <span class="section-label">Projeto Rio Real</span>
-    <h1>Viva a cidade como <em>um local.</em></h1>
-    <p style="font-size: 18px; color: #AAA; max-width: 600px;">Conectamos viajantes ao coração das comunidades cariocas através de roteiros autênticos e impacto social positivo.</p>
+  
+  <!-- SOBRE -->
+  <section id="sobre" style="padding-top: 140px;">
+    <span class="section-label">A iniciativa</span>
+    <h2>Turismo feito por <em>quem mora aqui.</em></h2>
+    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade. Acreditamos que a verdadeira beleza está nas favelas, nos subúrbios e nas histórias de quem constrói o Rio todos os dias. Nossa missão é gerar renda para anfitriões locais e memórias inesquecíveis para viajantes conscientes.</p>
   </section>
 
-  <!-- CLIENTES (CARROSSEL) -->
+  <!-- PORTFÓLIO -->
+  <section id="portfolio">
+    <span class="section-label">Portfólio</span>
+    <h2>O que já <em>aconteceu.</em></h2>
+    <div class="portfolio-grid">
+      <img src="https://images.unsplash.com/photo-1543353071-087092ec393a?q=80&w=400" alt="Cultura">
+      <img src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?q=80&w=400" alt="Evento">
+      <img src="https://images.unsplash.com/photo-1599423423912-293644917dcc?q=80&w=400" alt="Comunidade">
+      <img src="https://images.unsplash.com/photo-1583721323386-b4816be53915?q=80&w=400" alt="Rio">
+    </div>
+  </section>
+
+  <!-- CLIENTES / EXPERIENCIAS -->
   <section id="clientes">
-    <span class="section-label">Para o Viajante</span>
-    <h2>Experiências <em>em destaque</em></h2>
+    <span class="section-label">Experiências</span>
+    <h2>Garanta sua <em>vaga.</em></h2>
     <div class="carousel">
       <div class="experience-card">
-        <img src="https://images.unsplash.com/photo-1599423423912-293644917dcc?auto=format&fit=crop&w=400" class="exp-img">
+        <!-- Imagem de Gastronomia Real -->
+        <img src="https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?q=80&w=400" class="exp-img" alt="Gastronomia">
         <div class="exp-content">
-          <span class="exp-price">R$ 150,00</span>
-          <span class="exp-title">Tour Gastronômico no Vidigal</span>
-          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
+          <span class="exp-price">R$ 120,00</span>
+          <span style="font-weight:700; display:block; margin: 10px 0;">Circuito Gastronômico Favela</span>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 15px;">Sabores autênticos que você não encontra em restaurantes da Zona Sul.</p>
+          <a href="https://wa.me/5521999999999?text=Quero+saber+mais+sobre+o+Circuito+Gastronomico" class="btn" style="padding: 10px; font-size: 11px; text-decoration:none; display:block; text-align:center;">Reservar</a>
         </div>
       </div>
       <div class="experience-card">
-        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=400" class="exp-img">
+        <img src="https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?q=80&w=400" class="exp-img">
         <div class="exp-content">
           <span class="exp-price">R$ 80,00</span>
-          <span class="exp-title">Oficina de Percussão e Ritmos</span>
-          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
-        </div>
-      </div>
-      <div class="experience-card">
-        <img src="https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?auto=format&fit=crop&w=400" class="exp-img">
-        <div class="exp-content">
-          <span class="exp-price">R$ 200,00</span>
-          <span class="exp-title">Trilha Amanhecer com Local</span>
-          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
+          <span style="font-weight:700; display:block; margin: 10px 0;">Role de Graffiti e Arte</span>
+          <a href="https://wa.me/5521999999999?text=Quero+saber+mais+sobre+o+Role+de+Graffiti" class="btn" style="padding: 10px; font-size: 11px; text-decoration:none; display:block; text-align:center;">Reservar</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PARCEIROS (FORMULÁRIO) -->
+  <!-- PARCEIROS (COM FEEDBACK VISUAL CORRIGIDO) -->
   <section id="parceiros">
     <span class="section-label">Seja Parceiro</span>
-    <h2>Você faz parte do <em>Rio Real?</em></h2>
-    
+    <h2>Trabalhe <em>conosco.</em></h2>
     <div id="form-wrapper">
       <form id="cadastro-form">
-        <input type="hidden" name="_to" value="classesbypeon@gmail.com">
-        
         <div class="field">
-          <label>Nome completo *</label>
-          <input type="text" name="Nome" id="nome" required />
+          <label>Nome Completo *</label>
+          <input type="text" id="nome" name="Nome" required placeholder="Seu nome">
         </div>
-
         <div class="field">
           <label>WhatsApp *</label>
-          <input type="tel" name="WhatsApp" id="whatsapp" required />
+          <input type="tel" id="whatsapp" name="WhatsApp" required placeholder="(21) 99999-9999">
         </div>
-
         <div class="field">
-          <label>Como você pode somar na rede? *</label>
+          <label>Como você soma na rede? (Clique para selecionar)</label>
           <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Guia Local"> <span>🗺️ Guia / Anfitrião local</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Guia"> <span>🗺️ Guia / Anfitrião local</span></label>
             <label class="checkbox-item"><input type="checkbox" name="Soma" value="Transporte"> <span>🚗 Transporte (Moto/Carro)</span></label>
             <label class="checkbox-item"><input type="checkbox" name="Soma" value="Gastronomia"> <span>🍴 Gastronomia / Bares</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Fotografia"> <span>📸 Fotografia / Vídeo</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Foto"> <span>📸 Fotografia / Vídeo</span></label>
           </div>
         </div>
-
-        <div class="field">
-          <label>Fale um pouco sobre você</label>
-          <textarea name="Bio" placeholder="O que você faz de melhor?"></textarea>
-        </div>
-
-        <button type="button" class="btn" onclick="enviar()">Enviar minha proposta</button>
+        <button type="button" class="btn" onclick="enviar()">Enviar Cadastro</button>
       </form>
     </div>
-    <div id="success" style="display:none; text-align: center; padding: 40px;">
-      <h2>✅ Enviado com sucesso!</h2>
-    </div>
+    <div id="success" style="display:none; text-align:center;"><h2>✅ Recebido!</h2></div>
   </section>
 </div>
 
@@ -239,56 +211,59 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
-      <a href="#" class="logo" style="margin-bottom: 20px; display: block;">RIO REAL.</a>
-      <p>Redescobrindo o Rio através de conexões humanas.</p>
+      <h4 class="logo" style="color: var(--verde);">RIO REAL.</h4>
+      <p>O Rio de Janeiro além do óbvio.</p>
     </div>
     <div class="footer-col">
       <h4>Institucional</h4>
-      <a href="#">Sobre nós</a>
       <a href="#">Termos de Uso</a>
       <a href="#">Privacidade</a>
+      <a href="#">Políticas de Cancelamento</a>
     </div>
     <div class="footer-col">
-      <h4>Atendimento</h4>
-      <p>Seg a Sex: 09h às 18h</p>
-      <p>contato@rioreal.com.br</p>
+      <h4>Canais</h4>
+      <p>WhatsApp: (21) 99999-9999</p>
+      <p>Instagram: @rioreal</p>
     </div>
     <div class="footer-col">
       <h4>Pagamento</h4>
-      <div class="payments">
-        <!-- Ícones genéricos representados por texto/emoji ou imagens pequenas -->
-        <span>💳 Pix · Cartão · Dinheiro</span>
-      </div>
+      <p>Pix, Cartão de Crédito em até 12x, Dinheiro.</p>
     </div>
   </div>
-  <p style="text-align: center; color: #444; font-size: 11px; margin-top: 40px;">© 2026 Rio Real. Todos os direitos reservados.</p>
 </footer>
 
-<!-- BOTAO WHATSAPP -->
-<a href="https://wa.me/SEUNUMERO" class="wa-float" target="_blank">
-  <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.484 2.247 2.247 3.484 5.232 3.484 8.404 0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.96-.504-5.69-1.463l-6.315 1.688zm6.115-3.693c1.554.922 3.155 1.408 4.814 1.408 5.4 0 9.792-4.392 9.792-9.792s-4.392-9.792-9.792-9.792c-5.4 0-9.792 4.392-9.792 9.792 0 1.765.469 3.482 1.358 4.966l-1.017 3.712 3.829-.994zm11.235-7.556c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.151-.676.151-.2.302-.776.979-.951 1.18-.176.201-.351.226-.652.076-.301-.15-1.272-.469-2.422-1.495-.894-.798-1.497-1.783-1.672-2.084-.176-.302-.018-.465.132-.614.135-.134.301-.352.452-.529.151-.176.201-.276.301-.477.101-.201.051-.377-.025-.527-.076-.151-.676-1.631-.926-2.234-.243-.589-.491-.509-.676-.519-.174-.01-.375-.011-.575-.011-.201 0-.526.075-.801.376-.275.301-1.052 1.029-1.052 2.511 0 1.481 1.077 2.912 1.227 3.113.15.201 2.119 3.235 5.134 4.536.717.31 1.277.495 1.714.634.719.229 1.373.196 1.891.119.577-.085 1.781-.728 2.031-1.431.25-.703.25-1.306.175-1.431-.075-.124-.275-.201-.576-.351z"/></svg>
+<!-- WHATSAPP FLOAT (LINK ATIVO) -->
+<a href="https://wa.me/5521999999999" class="wa-float" target="_blank">
+  <svg width="35" height="35" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.484 2.247 2.247 3.484 5.232 3.484 8.404 0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.96-.504-5.69-1.463l-6.315 1.688zm6.115-3.693c1.554.922 3.155 1.408 4.814 1.408 5.4 0 9.792-4.392 9.792-9.792s-4.392-9.792-9.792-9.792c-5.4 0-9.792 4.392-9.792 9.792 0 1.765.469 3.482 1.358 4.966l-1.017 3.712 3.829-.994zm11.235-7.556c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.151-.676.151-.2.302-.776.979-.951 1.18-.176.201-.351.226-.652.076-.301-.15-1.272-.469-2.422-1.495-.894-.798-1.497-1.783-1.672-2.084-.176-.302-.018-.465.132-.614.135-.134.301-.352.452-.529.151-.176.201-.276.301-.477.101-.201.051-.377-.025-.527-.076-.151-.676-1.631-.926-2.234-.243-.589-.491-.509-.676-.519-.174-.01-.375-.011-.575-.011-.201 0-.526.075-.801.376-.275.301-1.052 1.029-1.052 2.511 0 1.481 1.077 2.912 1.227 3.113.15.201 2.119 3.235 5.134 4.536.717.31 1.277.495 1.714.634.719.229 1.373.196 1.891.119.577-.085 1.781-.728 2.031-1.431.25-.703.25-1.306.175-1.431-.075-.124-.275-.201-.576-.351z"/></svg>
 </a>
 
 <script>
-// Lógica das Checkboxes
+// Lógica das Checkboxes corrigida
 document.querySelectorAll('.checkbox-item').forEach(item => {
   const input = item.querySelector('input');
+  
   item.addEventListener('click', (e) => {
-    // Evita o duplo clique caso o usuário clique diretamente no input
+    // Evita o bug se clicar no texto ou na caixa
     if (e.target !== input) {
       input.checked = !input.checked;
     }
-    item.classList.toggle('selected', input.checked);
+    // Adiciona/Remove a classe para o brilho e cor
+    if (input.checked) {
+      item.classList.add('selected');
+    } else {
+      item.classList.remove('selected');
+    }
   });
 });
 
 async function enviar() {
+  const nome = document.getElementById('nome').value;
+  const whatsapp = document.getElementById('whatsapp').value;
+  if (!nome || !whatsapp) { alert('Preencha os campos obrigatórios!'); return; }
+
   const form = document.getElementById('cadastro-form');
   const formData = new FormData(form);
   
-  // Validação simples
-  if(!document.getElementById('nome').value) { alert('Nome é obrigatório'); return; }
-
   try {
     await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', {
       method: 'POST',
