@@ -7,45 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --verde: #00E87A;
-    --preto: #0A0A0A;
-    --cinza: #1A1A1A;
-    --borda: #2A2A2A;
-    --texto: #E8E8E8;
-    --muted: #888;
-  }
-
+  :root { --verde: #00E87A; --preto: #0A0A0A; --cinza: #1A1A1A; --borda: #2A2A2A; --texto: #E8E8E8; --muted: #888; }
   html { scroll-behavior: smooth; }
+  body { background: var(--preto); color: var(--texto); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
-  body {
-    background: var(--preto);
-    color: var(--texto);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* HEADER */
-  header {
-    position: fixed;
-    top: 0; width: 100%; z-index: 100;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--borda);
-  }
-  nav {
-    max-width: 1100px; margin: 0 auto; padding: 15px 24px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--verde); text-decoration: none; font-size: 20px; letter-spacing: -1px; }
+  header { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--borda); }
+  nav { max-width: 1100px; margin: 0 auto; padding: 15px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--verde); text-decoration: none; font-size: 20px; }
   nav ul { display: flex; list-style: none; gap: 20px; }
   nav a { text-decoration: none; color: var(--texto); font-size: 11px; font-family: 'Syne', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 
   .container { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-
   section { padding: 100px 0; border-bottom: 1px solid var(--borda); }
   .section-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--verde); margin-bottom: 20px; display: block; }
   
@@ -55,35 +27,25 @@
   em { font-style: normal; color: var(--verde); }
 
   /* CARROSSEL */
-  .carousel {
-    display: flex; overflow-x: auto; gap: 20px; padding: 20px 0;
-    scrollbar-width: none;
-  }
+  .carousel { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scrollbar-width: none; }
   .carousel::-webkit-scrollbar { display: none; }
-  .experience-card {
-    min-width: 280px; background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 12px; overflow: hidden; transition: 0.3s;
-  }
-  .experience-card:hover { border-color: var(--verde); }
+  .experience-card { min-width: 280px; background: var(--cinza); border: 1px solid var(--borda); border-radius: 12px; overflow: hidden; transition: 0.3s; }
   .exp-img { width: 100%; height: 220px; object-fit: cover; background: #222; display: block; }
   .exp-content { padding: 20px; }
   .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 8px; display: block; }
 
-  /* PORTFÓLIO GRID */
-  .portfolio-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px;
-  }
+  /* PORTFÓLIO */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
   .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; filter: grayscale(1); transition: 0.4s; background: #222; }
   .portfolio-grid img:hover { filter: grayscale(0); transform: scale(1.02); }
 
-  /* CHECKBOX ESTILIZADA */
+  /* CHECKBOX - O BRILHO QUE VOCÊ QUERIA */
   .checkbox-group { display: grid; gap: 10px; margin-top: 15px; }
   .checkbox-item {
     display: flex; align-items: center; gap: 12px;
     background: var(--cinza); border: 1px solid var(--borda);
     border-radius: 8px; padding: 18px; cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    transition: all 0.3s ease; position: relative;
   }
   .checkbox-item.selected {
     border-color: var(--verde);
@@ -94,38 +56,18 @@
 
   .field { margin-bottom: 20px; }
   label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
-  input[type="text"], input[type="tel"], textarea {
-    width: 100%; background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit;
-  }
+  input, textarea { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit; }
   input:focus, textarea:focus { border-color: var(--verde); }
 
-  .btn {
-    width: 100%; background: var(--verde); color: var(--preto);
-    font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px;
-    border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase;
-    transition: 0.3s; display: block; text-align: center; text-decoration: none;
-  }
+  .btn { width: 100%; background: var(--verde); color: var(--preto); font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px; border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase; transition: 0.3s; display: block; text-align: center; text-decoration: none; }
   .btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
-  /* FOOTER */
   footer { background: #050505; padding: 80px 24px; border-top: 1px solid var(--borda); margin-top: 40px; }
-  .footer-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;
-  }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
   .footer-col h4 { font-family: 'Syne', sans-serif; color: var(--verde); margin-bottom: 20px; font-size: 13px; text-transform: uppercase; }
   .footer-col p, .footer-col a { color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 10px; display: block; }
 
-  /* WHATSAPP */
-  .wa-float {
-    position: fixed; bottom: 30px; right: 30px;
-    background: #25D366; width: 64px; height: 64px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transition: 0.3s;
-  }
-  .wa-float:hover { transform: scale(1.1); }
+  .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
 </style>
 </head>
 <body>
@@ -143,21 +85,20 @@
 </header>
 
 <div class="container">
-  
   <section id="sobre" style="padding-top: 160px;">
     <span class="section-label">A iniciativa</span>
-    <h2>Turismo feito por <em>quem mora aqui.</em></h2>
-    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade. Acreditamos que a verdadeira beleza está nas favelas, nos subúrbios e nas histórias de quem constrói o Rio todos os dias.</p>
+    <h1>Turismo feito por <em>quem mora aqui.</em></h1>
+    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade.</p>
   </section>
 
   <section id="portfolio">
     <span class="section-label">Portfólio</span>
     <h2>Visto <em>de perto.</em></h2>
     <div class="portfolio-grid">
-      <img src="img/comunidade.jpg" alt="Comunidade">
-      <img src="img/rio.jpg" alt="Rio">
-      <img src="img/artesanato.jpg" alt="Artesanato">
-      <img src="img/local.jpg" alt="Vida Local">
+      <img src="IMG/comunidade.jpg" alt="Comunidade">
+      <img src="IMG/rio.jpg" alt="Rio">
+      <img src="IMG/artesanato.jpg" alt="Artesanato">
+      <img src="IMG/local.jpg" alt="Vida Local">
     </div>
   </section>
 
@@ -166,19 +107,19 @@
     <h2>Reserve o <em>seu lugar.</em></h2>
     <div class="carousel">
       <div class="experience-card">
-        <img src="img/gastronomia.jpg" class="exp-img" alt="Gastronomia">
+        <img src="IMG/gastronomia.jpg" class="exp-img">
         <div class="exp-content">
           <span class="exp-price">R$ 120,00</span>
-          <strong style="display:block; margin: 10px 0;">Circuito Gastronômico Favela</strong>
-          <a href="https://wa.me/5521999999999?text=Quero+reservar+Gastronomia" class="btn" style="padding: 12px; font-size: 11px;">Reservar</a>
+          <strong>Circuito Gastronômico Favela</strong>
+          <a href="https://wa.me/5521999999999" class="btn" style="margin-top:15px; padding:10px;">RESERVAR</a>
         </div>
       </div>
       <div class="experience-card">
-        <img src="img/trilha.jpg" class="exp-img" alt="Trilha">
+        <img src="IMG/trilha.jpg" class="exp-img">
         <div class="exp-content">
           <span class="exp-price">R$ 80,00</span>
-          <strong style="display:block; margin: 10px 0;">Trilha & Nascer do Sol</strong>
-          <a href="https://wa.me/5521999999999?text=Quero+reservar+Trilha" class="btn" style="padding: 12px; font-size: 11px;">Reservar</a>
+          <strong>Trilha & Nascer do Sol</strong>
+          <a href="https://wa.me/5521999999999" class="btn" style="margin-top:15px; padding:10px;">RESERVAR</a>
         </div>
       </div>
     </div>
@@ -187,64 +128,30 @@
   <section id="parceiros">
     <span class="section-label">Seja Parceiro</span>
     <h2>Trabalhe <em>conosco.</em></h2>
-    <div id="form-wrapper">
-      <form id="cadastro-form">
-        <div class="field">
-          <label>Nome Completo *</label>
-          <input type="text" id="nome" name="Nome" required placeholder="Seu nome">
+    <form id="cadastro-form">
+      <div class="field"><label>Nome Completo *</label><input type="text" name="Nome" required></div>
+      <div class="field"><label>WhatsApp *</label><input type="tel" name="WhatsApp" required></div>
+      <div class="field">
+        <label>Como você soma na rede? (Selecione)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Guia"><span>🗺️ Guia / Anfitrião local</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Transporte"><span>🚗 Transporte (Moto/Carro)</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Gastronomia"><span>🍴 Gastronomia / Bares</span></div>
+          <div class="checkbox-item"><input type="checkbox" name="Soma" value="Foto"><span>📸 Fotografia / Vídeo</span></div>
         </div>
-        <div class="field">
-          <label>WhatsApp *</label>
-          <input type="tel" id="whatsapp" name="WhatsApp" required placeholder="(21) 99999-9999">
-        </div>
-        <div class="field">
-          <label>Como você soma na rede? (Selecione)</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-                <input type="checkbox" name="Soma" value="Guia">
-                <span>🗺️ Guia / Anfitrião local</span>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" name="Soma" value="Transporte">
-                <span>🚗 Transporte (Moto/Carro)</span>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" name="Soma" value="Gastronomia">
-                <span>🍴 Gastronomia / Bares</span>
-            </div>
-            <div class="checkbox-item">
-                <input type="checkbox" name="Soma" value="Foto">
-                <span>📸 Fotografia / Vídeo</span>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="btn" onclick="enviar()">Enviar Proposta</button>
-      </form>
-    </div>
+      </div>
+      <button type="button" class="btn" onclick="enviar()">Enviar Proposta</button>
+    </form>
     <div id="success" style="display:none; text-align:center;"><h2>✅ Recebido!</h2></div>
   </section>
 </div>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-col">
-      <h4 class="logo">RIO REAL.</h4>
-      <p>Conectando histórias e territórios.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Links</h4>
-      <a href="#">Termos de Uso</a>
-      <a href="#">Privacidade</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contato</h4>
-      <p>WhatsApp: (21) 99999-9999</p>
-      <p>contato@rioreal.com.br</p>
-    </div>
-    <div class="footer-col">
-      <h4>Pagamento</h4>
-      <p>Pix · Cartão · Dinheiro</p>
-    </div>
+    <div class="footer-col"><h4 class="logo">RIO REAL.</h4><p>© 2026 Rio Real.</p></div>
+    <div class="footer-col"><h4>Legal</h4><a href="#">Privacidade</a><a href="#">Termos</a></div>
+    <div class="footer-col"><h4>Contato</h4><p>(21) 99999-9999</p></div>
+    <div class="footer-col"><h4>Pagamento</h4><p>Pix · Cartão · Dinheiro</p></div>
   </div>
 </footer>
 
@@ -253,32 +160,24 @@
 </a>
 
 <script>
-// Lógica de seleção corrigida para carregar as classes de brilho
-document.querySelectorAll('.checkbox-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const checkbox = item.querySelector('input');
-    checkbox.checked = !checkbox.checked;
-    item.classList.toggle('selected', checkbox.checked);
-  });
-});
-
-async function enviar() {
-  const nome = document.getElementById('nome').value;
-  const whatsapp = document.getElementById('whatsapp').value;
-  if (!nome || !whatsapp) { alert('Campos obrigatórios!'); return; }
-
-  const form = document.getElementById('cadastro-form');
-  const formData = new FormData(form);
-  
-  try {
-    await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', {
-      method: 'POST',
-      body: formData
+  // Script para marcar a caixa e dar o brilho
+  document.querySelectorAll('.checkbox-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const checkbox = item.querySelector('input');
+      checkbox.checked = !checkbox.checked;
+      item.classList.toggle('selected', checkbox.checked);
     });
-    document.getElementById('form-wrapper').style.display = 'none';
-    document.getElementById('success').style.display = 'block';
-  } catch(e) { alert('Erro no envio.'); }
-}
+  });
+
+  async function enviar() {
+    const form = document.getElementById('cadastro-form');
+    const formData = new FormData(form);
+    try {
+      await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', { method: 'POST', body: formData });
+      form.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    } catch(e) { alert('Erro no envio.'); }
+  }
 </script>
 
 </body>
