@@ -34,12 +34,12 @@
   .exp-content { padding: 20px; }
   .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 8px; display: block; }
 
-  /* PORTFÓLIO - REMOVIDO O FILTRO PRETO E BRANCO */
+  /* PORTFÓLIO - CORES REAIS ATIVADAS */
   .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
   .portfolio-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; transition: 0.4s; background: #222; }
   .portfolio-grid img:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-  /* CHECKBOX */
+  /* CHECKBOX COM BRILHO */
   .checkbox-group { display: grid; gap: 10px; margin-top: 15px; }
   .checkbox-item {
     display: flex; align-items: center; gap: 12px;
@@ -56,7 +56,7 @@
 
   .field { margin-bottom: 20px; }
   label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
-  input, textarea { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit; }
+  input { width: 100%; background: var(--cinza); border: 1px solid var(--borda); border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit; }
   input:focus { border-color: var(--verde); }
 
   .btn { width: 100%; background: var(--verde); color: var(--preto); font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px; border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase; transition: 0.3s; display: block; text-align: center; text-decoration: none; }
@@ -68,6 +68,7 @@
   .footer-col p, .footer-col a { color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 10px; display: block; }
 
   .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
+  .wa-float:hover { transform: scale(1.1); }
 </style>
 </head>
 <body>
@@ -88,7 +89,7 @@
   <section id="sobre" style="padding-top: 160px;">
     <span class="section-label">A iniciativa</span>
     <h1>Turismo feito por <em>quem mora aqui.</em></h1>
-    <p>O Rio Real é uma rede que nasceu para desfazer a visão superficial da cidade e valorizar o que é autêntico.</p>
+    <p>O Rio Real é uma rede que valoriza a cultura local e as conexões humanas autênticas em cada território.</p>
   </section>
 
   <section id="portfolio">
@@ -111,7 +112,7 @@
         <div class="exp-content">
           <span class="exp-price">R$ 120,00</span>
           <strong style="display:block; margin-bottom: 15px;">Circuito Gastronômico Favela</strong>
-          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR</a>
+          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR AGORA</a>
         </div>
       </div>
       <div class="experience-card">
@@ -119,7 +120,7 @@
         <div class="exp-content">
           <span class="exp-price">R$ 80,00</span>
           <strong style="display:block; margin-bottom: 15px;">Trilha & Nascer do Sol</strong>
-          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR</a>
+          <a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank" class="btn" style="padding:12px; font-size:11px;">RESERVAR AGORA</a>
         </div>
       </div>
     </div>
@@ -142,15 +143,15 @@
       </div>
       <button type="button" class="btn" onclick="enviar()">Enviar Proposta</button>
     </form>
-    <div id="success" style="display:none; text-align:center;"><h2>✅ Recebido!</h2></div>
+    <div id="success" style="display:none; text-align:center;"><h2>✅ Proposta enviada!</h2></div>
   </section>
 </div>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-col"><h4 class="logo">RIO REAL.</h4><p>© 2026 Rio Real.</p></div>
-    <div class="footer-col"><h4>Legal</h4><a href="#">Privacidade</a></div>
-    <div class="footer-col"><h4>Contato</h4><p>Comunidade Rio Real</p></div>
+    <div class="footer-col"><h4>Links</h4><a href="#">Privacidade</a></div>
+    <div class="footer-col"><h4>Comunidade</h4><a href="https://chat.whatsapp.com/CnaWRF495A85WxLtzDpHiF" target="_blank">Acessar Grupo</a></div>
     <div class="footer-col"><h4>Pagamento</h4><p>Pix · Dinheiro</p></div>
   </div>
 </footer>
@@ -160,6 +161,7 @@
 </a>
 
 <script>
+  // Lógica de seleção das caixas
   document.querySelectorAll('.checkbox-item').forEach(item => {
     item.addEventListener('click', () => {
       const checkbox = item.querySelector('input');
@@ -175,7 +177,7 @@
       await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', { method: 'POST', body: formData });
       form.style.display = 'none';
       document.getElementById('success').style.display = 'block';
-    } catch(e) { alert('Erro no envio.'); }
+    } catch(e) { alert('Erro no envio. Tente novamente.'); }
   }
 </script>
 
