@@ -28,7 +28,6 @@
     overflow-x: hidden;
   }
 
-  /* Efeito de Fundo */
   body::before {
     content: '';
     position: fixed;
@@ -39,139 +38,104 @@
     z-index: 0;
   }
 
-  /* Menu de Navegação */
+  /* HEADER & NAV */
   header {
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+    top: 0; width: 100%; z-index: 100;
     background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--borda);
   }
-
   nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1100px; margin: 0 auto; padding: 20px 24px;
+    display: flex; justify-content: space-between; align-items: center;
   }
-
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    color: var(--verde);
-    text-decoration: none;
-    font-size: 20px;
-  }
-
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--verde); text-decoration: none; font-size: 20px; }
   nav ul { display: flex; list-style: none; gap: 24px; }
-  nav a { 
-    text-decoration: none; 
-    color: var(--texto); 
-    font-size: 13px; 
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: color 0.3s;
-  }
-  nav a:hover { color: var(--verde); }
+  nav a { text-decoration: none; color: var(--texto); font-size: 12px; font-family: 'Syne', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-  /* Seções Gerais */
   section { padding: 100px 0; border-bottom: 1px solid var(--borda); }
-
-  .section-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: 28px;
-    display: block;
-  }
-
-  h1, h2 {
-    font-family: 'Syne', sans-serif;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-
+  .section-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--verde); margin-bottom: 28px; display: block; }
+  
+  h1, h2 { font-family: 'Syne', sans-serif; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; }
   h1 { font-size: clamp(40px, 8vw, 64px); font-weight: 800; }
   h2 { font-size: clamp(30px, 5vw, 42px); font-weight: 700; }
   em { font-style: normal; color: var(--verde); }
 
-  /* Grid de Portfólio */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 40px;
-  }
-
-  .portfolio-item {
-    aspect-ratio: 4/5;
-    background: var(--cinza);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--borda);
-  }
-
-  .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    filter: grayscale(100%);
-  }
-
-  .portfolio-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
-
-  /* Estilos do seu Form e Cards mantidos */
-  .cards { display: grid; gap: 12px; margin-top: 30px; }
-  .card {
-    background: var(--cinza);
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    padding: 20px 24px;
+  /* CARROSSEL DE EXPERIÊNCIAS (CLIENTES) */
+  .carousel {
     display: flex;
-    align-items: flex-start;
-    gap: 18px;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    scrollbar-width: none; /* Firefox */
   }
-  .card-num { font-family: 'Syne', sans-serif; color: var(--verde); font-weight: 700; }
-  
-  /* Form Elements */
+  .carousel::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+  .experience-card {
+    min-width: 280px;
+    background: var(--cinza);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .experience-card:hover { transform: translateY(-5px); border-color: var(--verde); }
+  .exp-img { width: 100%; height: 200px; object-fit: cover; }
+  .exp-content { padding: 20px; }
+  .exp-price { color: var(--verde); font-weight: 800; font-family: 'Syne', sans-serif; font-size: 18px; display: block; margin-bottom: 5px; }
+  .exp-title { font-weight: 700; font-size: 16px; margin-bottom: 10px; display: block; }
+
+  /* CHECKBOX ESTILIZADA (PARCEIROS) */
+  .checkbox-group { display: grid; gap: 8px; }
+  .checkbox-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--cinza); border: 1px solid var(--borda);
+    border-radius: 6px; padding: 12px 16px; cursor: pointer;
+    transition: all 0.2s; user-select: none;
+  }
+  .checkbox-item input { width: 18px; height: 18px; accent-color: var(--verde); }
+  .checkbox-item.selected { border-color: var(--verde); background: rgba(0,232,122,0.08); }
+
+  /* FORM ELEMENTS */
   .field { margin-bottom: 20px; }
   label { display: block; font-size: 13px; margin-bottom: 8px; color: #aaa; }
   input, select, textarea {
     width: 100%; background: var(--cinza); border: 1px solid var(--borda);
-    border-radius: 6px; color: var(--texto); padding: 14px; outline: none;
+    border-radius: 6px; color: var(--texto); padding: 14px; outline: none; font-family: inherit;
   }
-  input:focus { border-color: var(--verde); }
+  input:focus, select:focus { border-color: var(--verde); }
   .btn {
     width: 100%; background: var(--verde); color: var(--preto);
     font-family: 'Syne', sans-serif; font-weight: 800; padding: 18px;
     border-radius: 6px; cursor: pointer; border: none; text-transform: uppercase;
+    transition: 0.2s;
   }
+  .btn:hover { opacity: 0.9; transform: scale(1.01); }
 
-  /* Responsividade */
-  @media (max-width: 768px) {
-    nav ul { display: none; } /* Oculta menu em mobile por simplicidade, ou pode-se fazer um hambúrguer */
-    section { padding: 60px 0; }
+  /* RODAPÉ */
+  footer { background: #050505; padding: 60px 24px; border-top: 1px solid var(--borda); }
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;
   }
+  .footer-col h4 { font-family: 'Syne', sans-serif; font-size: 14px; margin-bottom: 20px; color: var(--verde); }
+  .footer-col a, .footer-col p { color: var(--muted); text-decoration: none; font-size: 13px; display: block; margin-bottom: 10px; }
+  .footer-col a:hover { color: #fff; }
+  .payments img { height: 25px; filter: grayscale(1) invert(1); opacity: 0.6; margin-right: 10px; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed; bottom: 30px; right: 30px;
+    background: #25D366; width: 60px; height: 60px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  @media (max-width: 768px) { nav ul { display: none; } }
 </style>
 </head>
 <body>
@@ -180,9 +144,8 @@
   <nav>
     <a href="#" class="logo">RIO REAL.</a>
     <ul>
-      <li><a href="#inicio">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#portfolio">Experiências</a></li>
       <li><a href="#clientes">Contratar</a></li>
       <li><a href="#parceiros">Seja Parceiro</a></li>
     </ul>
@@ -190,116 +153,141 @@
 </header>
 
 <div class="container">
-
   <!-- INÍCIO -->
   <section id="inicio" style="padding-top: 160px;">
-    <span class="section-label">Bem-vindo</span>
-    <h1>O Rio que não está nos <em>cartões postais.</em></h1>
-    <p style="font-size: 18px; color: #AAA; max-width: 600px;">
-      Conectamos viajantes a experiências genuínas conduzidas por quem vive e respira a cultura local. Turismo de base comunitária, impacto real.
-    </p>
+    <span class="section-label">Projeto Rio Real</span>
+    <h1>Viva a cidade como <em>um local.</em></h1>
+    <p style="font-size: 18px; color: #AAA; max-width: 600px;">Conectamos viajantes ao coração das comunidades cariocas através de roteiros autênticos e impacto social positivo.</p>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <span class="section-label">Nossa História</span>
-    <h2>Pessoas, <em>não apenas</em> lugares.</h2>
-    <p>O Projeto Rio Real nasceu da vontade de democratizar o turismo e valorizar os talentos das periferias e comunidades cariocas. Nossa equipe é formada por guias, artistas e produtores que acreditam no poder da narrativa local.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-text">
-          <strong>Nossos Valores</strong>
-          <span>Autenticidade, respeito à comunidade e sustentabilidade econômica local.</span>
+  <!-- CLIENTES (CARROSSEL) -->
+  <section id="clientes">
+    <span class="section-label">Para o Viajante</span>
+    <h2>Experiências <em>em destaque</em></h2>
+    <div class="carousel">
+      <div class="experience-card">
+        <img src="https://images.unsplash.com/photo-1599423423912-293644917dcc?auto=format&fit=crop&w=400" class="exp-img">
+        <div class="exp-content">
+          <span class="exp-price">R$ 150,00</span>
+          <span class="exp-title">Tour Gastronômico no Vidigal</span>
+          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
+        </div>
+      </div>
+      <div class="experience-card">
+        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=400" class="exp-img">
+        <div class="exp-content">
+          <span class="exp-price">R$ 80,00</span>
+          <span class="exp-title">Oficina de Percussão e Ritmos</span>
+          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
+        </div>
+      </div>
+      <div class="experience-card">
+        <img src="https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?auto=format&fit=crop&w=400" class="exp-img">
+        <div class="exp-content">
+          <span class="exp-price">R$ 200,00</span>
+          <span class="exp-title">Trilha Amanhecer com Local</span>
+          <a href="#" class="btn" style="padding: 10px; font-size: 12px;">Saber mais</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFÓLIO -->
-  <section id="portfolio">
-    <span class="section-label">Experiências Realizadas</span>
-    <h2>Um pouco do que <em>vivemos.</em></h2>
-    <div class="portfolio-grid">
-      <!-- Substitua os SRCs pelas suas fotos -->
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=500" alt="Rio"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?auto=format&fit=crop&w=500" alt="Cultura"></div>
-      <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1599423423912-293644917dcc?auto=format&fit=crop&w=500" alt="Gastronomia"></div>
-    </div>
-  </section>
-
-  <!-- CLIENTES -->
-  <section id="clientes">
-    <span class="section-label">Para o Viajante</span>
-    <h2>Como <em>contratar</em> uma experiência?</h2>
-    <p style="margin-bottom: 30px;">Oferecemos roteiros personalizados, oficinas culturais e imersões gastronômicas.</p>
-    <a href="https://wa.me/SEUNUMERO" class="btn" style="display: block; text-align: center; text-decoration: none;">Ver Catálogo de Experiências</a>
-  </section>
-
-  <!-- PARCEIROS (SEU FORMULÁRIO ORIGINAL) -->
+  <!-- PARCEIROS (FORMULÁRIO) -->
   <section id="parceiros">
-    <span class="section-label">Rede de Parceiros</span>
-    <h2 class="form-title">Faça parte do <em>time.</em></h2>
-    <p class="form-sub" style="margin-bottom: 40px; color: #888;">Você conhece o Rio de verdade? Queremos te conhecer.</p>
-
+    <span class="section-label">Seja Parceiro</span>
+    <h2>Você faz parte do <em>Rio Real?</em></h2>
+    
     <div id="form-wrapper">
       <form id="cadastro-form">
-        <!-- Campos ocultos do FormSubmit -->
         <input type="hidden" name="_to" value="classesbypeon@gmail.com">
-        <input type="hidden" name="_subject" value="Novo Parceiro - Rio Real">
-        <input type="hidden" name="_captcha" value="false">
-
+        
         <div class="field">
-          <label>Nome completo <span class="req">*</span></label>
-          <input type="text" name="Nome" id="nome" placeholder="Seu nome" required />
+          <label>Nome completo *</label>
+          <input type="text" name="Nome" id="nome" required />
         </div>
 
         <div class="field">
-          <label>WhatsApp <span class="req">*</span></label>
-          <input type="tel" name="WhatsApp" id="whatsapp" placeholder="(21) 99999-9999" required />
+          <label>WhatsApp *</label>
+          <input type="tel" name="WhatsApp" id="whatsapp" required />
         </div>
 
         <div class="field">
-          <label>Em qual região do Rio você atua? <span class="req">*</span></label>
-          <select name="Região" id="regiao" required>
-            <option value="" disabled selected>Selecione</option>
-            <option>Zona Sul</option>
-            <option>Centro / Lapa</option>
-            <option>Zona Norte</option>
-            <option>Vidigal / Favela</option>
-            <option>Outra</option>
-          </select>
+          <label>Como você pode somar na rede? *</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Guia Local"> <span>🗺️ Guia / Anfitrião local</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Transporte"> <span>🚗 Transporte (Moto/Carro)</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Gastronomia"> <span>🍴 Gastronomia / Bares</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="Soma" value="Fotografia"> <span>📸 Fotografia / Vídeo</span></label>
+          </div>
         </div>
 
         <div class="field">
-          <label>Como você pode somar? <span class="req">*</span></label>
-          <textarea name="Bio" id="bio" placeholder="Conte brevemente o que você faz..."></textarea>
+          <label>Fale um pouco sobre você</label>
+          <textarea name="Bio" placeholder="O que você faz de melhor?"></textarea>
         </div>
 
-        <button type="button" class="btn" onclick="enviar()">Enviar Cadastro →</button>
+        <button type="button" class="btn" onclick="enviar()">Enviar minha proposta</button>
       </form>
     </div>
-
-    <!-- SUCCESS STATE (Oculto inicialmente) -->
     <div id="success" style="display:none; text-align: center; padding: 40px;">
-      <h2 style="color: var(--verde);">✅ Sucesso!</h2>
-      <p>Entraremos em contato em breve.</p>
+      <h2>✅ Enviado com sucesso!</h2>
     </div>
   </section>
-
 </div>
 
-<script>
-async function enviar() {
-  const nome = document.getElementById('nome').value.trim();
-  const whatsapp = document.getElementById('whatsapp').value.trim();
-  
-  if (!nome || !whatsapp) {
-    alert('Preencha os campos obrigatórios.');
-    return;
-  }
+<!-- RODAPÉ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="#" class="logo" style="margin-bottom: 20px; display: block;">RIO REAL.</a>
+      <p>Redescobrindo o Rio através de conexões humanas.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Privacidade</a>
+    </div>
+    <div class="footer-col">
+      <h4>Atendimento</h4>
+      <p>Seg a Sex: 09h às 18h</p>
+      <p>contato@rioreal.com.br</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pagamento</h4>
+      <div class="payments">
+        <!-- Ícones genéricos representados por texto/emoji ou imagens pequenas -->
+        <span>💳 Pix · Cartão · Dinheiro</span>
+      </div>
+    </div>
+  </div>
+  <p style="text-align: center; color: #444; font-size: 11px; margin-top: 40px;">© 2026 Rio Real. Todos os direitos reservados.</p>
+</footer>
 
+<!-- BOTAO WHATSAPP -->
+<a href="https://wa.me/SEUNUMERO" class="wa-float" target="_blank">
+  <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.484 2.247 2.247 3.484 5.232 3.484 8.404 0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.96-.504-5.69-1.463l-6.315 1.688zm6.115-3.693c1.554.922 3.155 1.408 4.814 1.408 5.4 0 9.792-4.392 9.792-9.792s-4.392-9.792-9.792-9.792c-5.4 0-9.792 4.392-9.792 9.792 0 1.765.469 3.482 1.358 4.966l-1.017 3.712 3.829-.994zm11.235-7.556c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.151-.676.151-.2.302-.776.979-.951 1.18-.176.201-.351.226-.652.076-.301-.15-1.272-.469-2.422-1.495-.894-.798-1.497-1.783-1.672-2.084-.176-.302-.018-.465.132-.614.135-.134.301-.352.452-.529.151-.176.201-.276.301-.477.101-.201.051-.377-.025-.527-.076-.151-.676-1.631-.926-2.234-.243-.589-.491-.509-.676-.519-.174-.01-.375-.011-.575-.011-.201 0-.526.075-.801.376-.275.301-1.052 1.029-1.052 2.511 0 1.481 1.077 2.912 1.227 3.113.15.201 2.119 3.235 5.134 4.536.717.31 1.277.495 1.714.634.719.229 1.373.196 1.891.119.577-.085 1.781-.728 2.031-1.431.25-.703.25-1.306.175-1.431-.075-.124-.275-.201-.576-.351z"/></svg>
+</a>
+
+<script>
+// Lógica das Checkboxes
+document.querySelectorAll('.checkbox-item').forEach(item => {
+  const input = item.querySelector('input');
+  item.addEventListener('click', (e) => {
+    // Evita o duplo clique caso o usuário clique diretamente no input
+    if (e.target !== input) {
+      input.checked = !input.checked;
+    }
+    item.classList.toggle('selected', input.checked);
+  });
+});
+
+async function enviar() {
   const form = document.getElementById('cadastro-form');
   const formData = new FormData(form);
+  
+  // Validação simples
+  if(!document.getElementById('nome').value) { alert('Nome é obrigatório'); return; }
 
   try {
     await fetch('https://formsubmit.co/ajax/classesbypeon@gmail.com', {
@@ -308,9 +296,7 @@ async function enviar() {
     });
     document.getElementById('form-wrapper').style.display = 'none';
     document.getElementById('success').style.display = 'block';
-  } catch(e) {
-    alert('Erro ao enviar. Tente novamente.');
-  }
+  } catch(e) { alert('Erro ao enviar.'); }
 }
 </script>
 
